@@ -10,7 +10,7 @@ echo "Hello"
 
 mkdir -p /service
 
-wget https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz -O - | sudo tar -xz -C /service/
+wget https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz -O - | tar -xz -C /service/
 
 time=$(ls /service | grep arvan)
 
