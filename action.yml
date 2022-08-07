@@ -21,9 +21,6 @@ inputs:
     description: "The version of the CLI"
     required: false
     default: "1.0.3"
-outputs:
-  time:
-    description: "The time that deployment done"
 runs:
   using: "docker"
   image: "Dockerfile"
