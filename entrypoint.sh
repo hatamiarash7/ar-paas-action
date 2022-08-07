@@ -50,11 +50,15 @@ if [ $ERRORS -ne 0 ]
     exit
 fi
 
+echo " -----> Get data"
+
 CLI_VERSION="$1"
 AUTH="$2"
 APP="$3"
 CONTAINER="$4"
 IMAGE="$5"
+
+echo " -----> Create directory"
 
 mkdir -p /service
 
