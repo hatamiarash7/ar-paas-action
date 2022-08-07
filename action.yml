@@ -1,15 +1,30 @@
-name: "PaaS Action"
-description: "description"
+name: "ArvanCloud PaaS Action"
+author: "Arash Hatami"
+description: "Deploy new changes to ArvanCloud PaaS"
+branding:
+  icon: "cloud"
+  color: "blue"
 inputs:
-  who-to-greet:
-    description: "Who to greet"
+  auth:
+    description: "Your ArvanCloud API auth token"
     required: true
-    default: "World"
+  app:
+    description: "The ArvanCloud app to deploy to"
+    required: true
+  container:
+    description: "The ArvanCloud container to deploy to"
+    required: true
+  image:
+    description: "Your new image to deploy"
+    required: true
 outputs:
   time:
-    description: "The time we greeted you"
+    description: "The time that deployment done"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.auth }}
+    - ${{ inputs.app }}
+    - ${{ inputs.container }}
+    - ${{ inputs.image }}
