@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 CLI_VERSION="$1"
 AUTH="$2"
@@ -16,7 +16,7 @@ mkdir -p /service
 
 echo " -----> Download ArvanCloud CLI tool version: $CLI_VERSION"
 
-wget https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz -O - | tar -xz -C /service/
+wget -q https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz -O - | tar -xz -C /service/
 
 echo " -----> Login ..."
 
