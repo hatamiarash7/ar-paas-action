@@ -1,5 +1,6 @@
 FROM alpine:3.10
 
+ARG CLI_VERSION
 ENV CLI_VERSION $CLI_VERSION
 
 RUN mkdir -p /service
