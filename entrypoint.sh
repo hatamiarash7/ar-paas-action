@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
 echo "Hello $1"
-time=$(date)
+time=$(ls /service | grep arvan)
 echo "::set-output name=time::$time"
