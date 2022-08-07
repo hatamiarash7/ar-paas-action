@@ -6,11 +6,11 @@ APP="$3"
 CONTAINER="$4"
 IMAGE="$5"
 
-echo "*****************************************"
+echo "* * * * * * * * * * * * * * * * * * * * *"
 echo "*                                       *"
 echo "*   Welcome to ArvanCloud PaaS Action   *"
 echo "*                                       *"
-echo "*****************************************"
+echo "* * * * * * * * * * * * * * * * * * * * *"
 
 mkdir -p /service
 
