@@ -27,9 +27,8 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  env:
-    CLI_VERSION: ${{ inputs.version }}
   args:
+    - ${{ inputs.version }}
     - ${{ inputs.auth }}
     - ${{ inputs.app }}
     - ${{ inputs.container }}
