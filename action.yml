@@ -18,7 +18,7 @@ inputs:
     description: "Your new image to deploy"
     required: true
   version:
-    description: "The version of the CLI"
+    description: "The version of CLI tool to use"
     required: false
     default: "1.0.3"
 runs:
