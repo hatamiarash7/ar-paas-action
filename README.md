@@ -28,6 +28,12 @@ Following inputs can be used as `step.with` keys
 | `image`     | String |         | Docker image like `org/image:tag`                                        |
 | `version`   | String | `1.0.3` | Version of ArvanCloud CLI tool                                           |
 
+### Authentication
+
+You should get your API key from `ArvanCloud Dashboard > Settings > API keys`. You need a key with **Container Service** permission.
+
+Define this key as a `Repository/Organization secret`.
+
 ## Contributing
 
 Don't be shy and reach out to us if you want to contribute.
