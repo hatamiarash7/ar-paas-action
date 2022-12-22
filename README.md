@@ -28,7 +28,7 @@ Following inputs can be used as `step.with` keys
 | `app`       | String |         | Application's name in your PaaS project                                  |
 | `container` | String |         | The container that you want to update its image                          |
 | `image`     | String |         | Docker image like `org/image:tag`                                        |
-| `version`   | String | `1.0.3` | Version of ArvanCloud CLI tool                                           |
+| `version`   | String | `1.3.3` | Version of ArvanCloud CLI tool                                           |
 
 ### Authentication
 
