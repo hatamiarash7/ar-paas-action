@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.authors="hatamiarash7"
 LABEL org.opencontainers.image.vendor="hatamiarash7"
 LABEL org.opencontainers.image.title="ArvanCloud PaaS Action"
 LABEL org.opencontainers.image.description="Deploy new changes to ArvanCloud PaaS"
-LABEL org.opencontainers.image.source="https://github.com/arvancloud/ar-paas-action"
+LABEL org.opencontainers.image.source="https://github.com/hatamiarash7/ar-paas-action"
 
 RUN apt-get update && apt-get install -y \
     wget \
