@@ -22,13 +22,14 @@ With this action you can update your deployment on ArvanCloud PaaS.
 
 Following inputs can be used as `step.with` keys
 
-| Name        | Type   | Default | Description                                                              |
-| ----------- | ------ | ------- | ------------------------------------------------------------------------ |
-| `auth`      | String |         | Your API token from [ArvanCloud](https://www.arvancloud.com/en/docs/api) |
-| `app`       | String |         | Application's name in your PaaS project                                  |
-| `container` | String |         | The container that you want to update its image                          |
-| `image`     | String |         | Docker image like `org/image:tag`                                        |
-| `version`   | String | `1.3.3` | Version of ArvanCloud CLI tool                                           |
+| Name        | Type     | Default | Description                                                                         |
+| ----------- | -------- | ------- | ----------------------------------------------------------------------------------- |
+| `auth`      | Required |         | Your API token from [ArvanCloud](https://www.arvancloud.com/en/docs/api)            |
+| `namespace` |          |         | The target namespace ( PaaS project ). Will be the default project if not specified |
+| `app`       | Required |         | Application's name in your PaaS project                                             |
+| `container` | Required |         | The container that you want to update its image                                     |
+| `image`     | Required |         | Docker image like `org/image:tag`                                                   |
+| `version`   |          | `1.3.3` | Version of ArvanCloud CLI tool                                                      |
 
 ### Authentication
 

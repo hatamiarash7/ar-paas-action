@@ -57,6 +57,7 @@ AUTH="$2"
 APP="$3"
 CONTAINER="$4"
 IMAGE="$5"
+NS="$6"
 
 echo " -----> Create directory"
 
@@ -72,4 +73,4 @@ echo " -----> Login"
 
 echo " -----> Deploy"
 
-/service/arvan paas set image deployment ${APP} ${CONTAINER}=${IMAGE}
+/service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}

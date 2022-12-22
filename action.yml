@@ -8,6 +8,10 @@ inputs:
   auth:
     description: "Your ArvanCloud API auth token"
     required: true
+  namespace:
+    description: "The target namespace ( project )"
+    required: false
+    default: ""
   app:
     description: "The ArvanCloud app to deploy to"
     required: true
@@ -30,3 +34,4 @@ runs:
     - ${{ inputs.app }}
     - ${{ inputs.container }}
     - ${{ inputs.image }}
+    - ${{ inputs.namespace }}
