@@ -32,7 +32,7 @@ Following inputs can be used as `step.with` keys
 
 You should get your API key from `ArvanCloud Dashboard > Settings > API keys`. You need a key with **Container Service** permission.
 
-Define this key as a `Repository/Organization secret`.
+Define this key as a `Repository/Organization` secret.
 
 ## Contributing
 
