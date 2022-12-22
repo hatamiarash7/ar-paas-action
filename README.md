@@ -2,6 +2,8 @@
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/hatamiarash7/ar-paas-action?color=%2300baba&label=Marketplace&logo=github)
 
+![logo](.github/logo.svg)
+
 With this action you can update your deployment on ArvanCloud PaaS.
 
 ## Usage
