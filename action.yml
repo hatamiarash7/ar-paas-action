@@ -11,7 +11,7 @@ inputs:
   namespace:
     description: "The target namespace ( project )"
     required: false
-    default: ""
+    default: "default"
   app:
     description: "The ArvanCloud app to deploy to"
     required: true

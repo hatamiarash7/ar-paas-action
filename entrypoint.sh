@@ -45,6 +45,13 @@ if [ -z "$5" ]
     (( ERRORS ++ ))
 fi
 
+if [ "$6" != "default" ]
+  then
+    NS="-n $6"
+  else
+    NS=""
+fi
+
 if [ $ERRORS -ne 0 ]
   then
     exit
@@ -57,7 +64,6 @@ AUTH="$2"
 APP="$3"
 CONTAINER="$4"
 IMAGE="$5"
-NS="$6"
 
 echo " -----> Create directory"
 
