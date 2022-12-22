@@ -20,7 +20,7 @@ With this action you can update your deployment on ArvanCloud PaaS.
 
 ## Customizing
 
-Following inputs can be used as `step.with` keys
+Following inputs can be used as `with` keys
 
 | Name        | Type     | Default | Description                                                                         |
 | ----------- | -------- | ------- | ----------------------------------------------------------------------------------- |
