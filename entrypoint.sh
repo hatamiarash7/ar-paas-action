@@ -1,82 +1,80 @@
 #!/bin/bash
 
-echo "* * * * * * * * * * * * * * * * * * * * *"
-echo "*                                       *"
-echo "*   Welcome to ArvanCloud PaaS Action   *"
-echo "*                                       *"
-echo "* * * * * * * * * * * * * * * * * * * * *"
-echo ""
+readonly CLI_VERSION="${1:?Error: Please set CLI version}"
+readonly AUTH="${2:?Error: Please set your API token}"
+readonly APP="${3:?Error: Please set your application name}"
+readonly CONTAINER="${4:?Error: Please set your container name}"
+readonly IMAGE="${5:?Error: Please set your image like this = image:tag}"
 
-ERRORS=0
-
-if [ $# -eq 0 ]
-  then
-    echo " -----> Error: No arguments supplied"
-    exit
+if [ "$6" != "default" ]; then
+  readonly NS="-n $6"
+else
+  readonly NS=""
 fi
 
-if [ -z "$1" ]
-  then
-    echo " -----> Error: Please set CLI version"
-    (( ERRORS ++ ))
-fi
+print_header() {
+    printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
+    printf "%s\n" "*                                       *"
+    printf "%s\n" "*   Welcome to ArvanCloud PaaS Action   *"
+    printf "%s\n" "*                                       *"
+    printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
+    printf "%s\n\n" ""
+}
 
-if [ -z "$2" ]
-  then
-    echo " -----> Error: Please set your API token"
-    (( ERRORS ++ ))
-fi
+print_error() {
+    printf " -----> Error: %s\n" "$1"
+}
 
-if [ -z "$3" ]
-  then
-    echo " -----> Error: Please set your application name"
-    (( ERRORS ++ ))
-fi
+validate_arguments() {
+    local errors=0
+    for arg in "$@"; do
+        if [ -z "$arg" ]; then
+            print_error "Empty argument"
+            (( errors ++ ))
+        fi
+    done
+    return "$errors"
+}
 
-if [ -z "$4" ]
-  then
-    echo " -----> Error: Please set your container name"
-    (( ERRORS ++ ))
-fi
+get_data() {
+    printf " -----> Get data\n"
+    printf "CLI version: %s\n" "$CLI_VERSION"
+    printf "API token: %s\n" "$AUTH"
+    printf "Namespace: %s\n" "$6"
+    printf "Application name: %s\n" "$APP"
+    printf "Container name: %s\n" "$CONTAINER"
+    printf "Image: %s\n" "$IMAGE"
+}
 
-if [ -z "$5" ]
-  then
-    echo " -----> Error: Please set your image like this = image:tag"
-    (( ERRORS ++ ))
-fi
+create_directory() {
+    printf " -----> Create directory\n"
+    mkdir -p /service
+}
 
-if [ "$6" != "default" ]
-  then
-    NS="-n $6"
-  else
-    NS=""
-fi
+download_cli_tool() {
+    printf " -----> Download ArvanCloud CLI tool version: %s\n" "$CLI_VERSION"
+    wget -q "https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz" -O - | tar -xz -C /service/
+}
 
-if [ $ERRORS -ne 0 ]
-  then
-    exit
-fi
+login() {
+    printf " -----> Login\n"
+    /service/arvan login <<< "$AUTH"
+}
 
-echo " -----> Get data"
+deploy() {
+    printf " -----> Deploy\n"
+    /service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}
+}
 
-CLI_VERSION="$1"
-AUTH="$2"
-APP="$3"
-CONTAINER="$4"
-IMAGE="$5"
+main() {
+    set -e
+    print_header
+    validate_arguments "$@" || exit
+    get_data
+    create_directory
+    download_cli_tool
+    login
+    deploy
+}
 
-echo " -----> Create directory"
-
-mkdir -p /service
-
-echo " -----> Download ArvanCloud CLI tool version: $CLI_VERSION"
-
-wget -q https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz -O - | tar -xz -C /service/
-
-echo " -----> Login"
-
-/service/arvan login <<< """$AUTH"""
-
-echo " -----> Deploy"
-
-/service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}
+main "$@"
