@@ -24,7 +24,7 @@ inputs:
   version:
     description: "The version of CLI tool to use"
     required: false
-    default: "1.3.3"
+    default: "1.3.4"
 runs:
   using: "docker"
   image: "Dockerfile"
