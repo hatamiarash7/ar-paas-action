@@ -1,4 +1,4 @@
-FROM debian:stable-20230320-slim
+FROM debian:stable-20230411-slim
 
 LABEL maintainer="Arash Hatami <hatamiarash7@gmail.com>"
 LABEL org.opencontainers.image.version="1.0.0"
