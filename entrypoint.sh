@@ -58,7 +58,7 @@ download_cli_tool() {
 
 login() {
     printf " -----> Login\n"
-    /service/arvan login <<<"$AUTH"
+    echo "$AUTH" | /service/arvan login
 }
 
 deploy() {
