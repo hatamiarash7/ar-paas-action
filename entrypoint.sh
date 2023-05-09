@@ -7,9 +7,9 @@ readonly CONTAINER="${4:?Error: Please set your container name}"
 readonly IMAGE="${5:?Error: Please set your image like this = image:tag}"
 
 if [ "$6" != "default" ]; then
-  readonly NS="-n $6"
+    readonly NS="-n $6"
 else
-  readonly NS=""
+    readonly NS=""
 fi
 
 print_header() {
@@ -30,7 +30,7 @@ validate_arguments() {
     for arg in "$@"; do
         if [ -z "$arg" ]; then
             print_error "Empty argument"
-            (( errors ++ ))
+            ((errors++))
         fi
     done
     return "$errors"
@@ -47,7 +47,7 @@ get_data() {
 }
 
 create_directory() {
-    printf " -----> Create directory\n"
+    printf " -----> Create service directory\n"
     mkdir -p /service
 }
 
@@ -58,11 +58,13 @@ download_cli_tool() {
 
 login() {
     printf " -----> Login\n"
-    /service/arvan login <<< "$AUTH"
+    printf " /service/arvan login <<<'$AUTH'\n"
+    /service/arvan login <<<"$AUTH"
 }
 
 deploy() {
     printf " -----> Deploy\n"
+    printf " /service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}\n"
     /service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}
 }
 
