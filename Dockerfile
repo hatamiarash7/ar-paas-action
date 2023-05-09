@@ -1,7 +1,7 @@
 FROM debian:stable-20230502-slim
 
 LABEL maintainer="Arash Hatami <hatamiarash7@gmail.com>"
-LABEL org.opencontainers.image.version="1.0.0"
+LABEL org.opencontainers.image.version="1.1.0"
 LABEL org.opencontainers.image.authors="hatamiarash7"
 LABEL org.opencontainers.image.vendor="hatamiarash7"
 LABEL org.opencontainers.image.title="ArvanCloud PaaS Action"
