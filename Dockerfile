@@ -10,8 +10,8 @@ LABEL org.opencontainers.image.source="https://github.com/hatamiarash7/ar-paas-a
 
 RUN apt-get update && apt-get install -y \
     wget \
-    tar \
-    && rm -rf /var/lib/apt/lists/*
+    tar &&
+    rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /entrypoint.sh
 
