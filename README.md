@@ -29,11 +29,11 @@ Following inputs can be used as `with` keys
 | `app`       | Required |         | Application's name in your PaaS project                                             |
 | `container` | Required |         | The container that you want to update its image                                     |
 | `image`     | Required |         | Docker image like `org/image:tag`                                                   |
-| `version`   |          | `1.3.5` | Version of ArvanCloud CLI tool                                                      |
+| `version`   |          | `1.3.6` | Version of ArvanCloud CLI tool                                                      |
 
 ### Authentication
 
-You should get your API key from `ArvanCloud Dashboard > Settings > API keys`. You need a key with **Container Service** permission.
+You should get your API key from `ArvanCloud Dashboard > Settings > API keys ( Machine User )`. You need a key with **Container Service** permission.
 
 Define this key as a `Repository/Organization` secret.
 
