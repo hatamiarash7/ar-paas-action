@@ -7,9 +7,9 @@ readonly CONTAINER="${4:?Error: Please set your container name}"
 readonly IMAGE="${5:?Error: Please set your image like this = image:tag}"
 
 if [ "$6" != "default" ]; then
-  readonly NS="-n $6"
+    readonly NS="-n $6"
 else
-  readonly NS=""
+    readonly NS=""
 fi
 
 print_header() {
@@ -30,7 +30,7 @@ validate_arguments() {
     for arg in "$@"; do
         if [ -z "$arg" ]; then
             print_error "Empty argument"
-            (( errors ++ ))
+            ((errors++))
         fi
     done
     return "$errors"
@@ -58,7 +58,7 @@ download_cli_tool() {
 
 login() {
     printf " -----> Login\n"
-    /service/arvan login <<< "$AUTH"
+    /service/arvan login <<<"$AUTH"
 }
 
 deploy() {
