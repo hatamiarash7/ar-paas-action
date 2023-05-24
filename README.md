@@ -18,6 +18,8 @@ With this action you can update your deployment on ArvanCloud PaaS.
     image: nginx:1.23.1-alpine
 ```
 
+> You can use the `debug` branch to see more logs. It's `hatamiarash7/ar-paas-action@debug`.
+
 ## Customizing
 
 Following inputs can be used as `with` keys
