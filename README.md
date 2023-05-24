@@ -10,7 +10,7 @@ With this action you can update your deployment on ArvanCloud PaaS.
 
 ```yaml
 - name: R1C PaaS Action
-  uses: hatamiarash7/ar-paas-action@v1.0.0
+  uses: hatamiarash7/ar-paas-action@v1.2.0
   with:
     auth: ${{ secrets.API_TOKEN }}
     app: my-application
