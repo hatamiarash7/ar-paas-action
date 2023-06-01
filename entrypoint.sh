@@ -71,10 +71,9 @@ deploy() {
 cleanup() {
     printf " -----> Cleanup\n"
     printf " rm -rf ~/.arvan\n"
-    find / -type d -name '.arvan'
-    ls -a /github/home
-    rm -rf ~/.arvan
-    ls -a /github/home
+    ls /root/.arvan
+    rm -rf /root/.arvan
+    ls -a /root/
 }
 
 main() {
