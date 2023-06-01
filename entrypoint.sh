@@ -68,6 +68,12 @@ deploy() {
     /service/arvan paas ${NS} set image deployment ${APP} ${CONTAINER}=${IMAGE}
 }
 
+cleanup() {
+    printf " -----> Cleanup\n"
+    printf " rm -rf ~/.arvan\n"
+    rm -rf ~/.arvan
+}
+
 main() {
     set -e
     print_header
@@ -77,6 +83,7 @@ main() {
     download_cli_tool
     login
     deploy
+    cleanup
 }
 
 main "$@"
