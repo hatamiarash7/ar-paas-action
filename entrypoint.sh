@@ -7,8 +7,8 @@ readonly APP="${4:?Error: Please set your application name}"
 readonly CONTAINER="${5:?Error: Please set your container name}"
 readonly IMAGE="${6:?Error: Please set your image like this = image:tag}"
 
-if [ "$6" != "default" ]; then
-    readonly NS="-n $6"
+if [ "$7" != "default" ]; then
+    readonly NS="-n $7"
 else
     readonly NS=""
 fi
