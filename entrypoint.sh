@@ -53,6 +53,7 @@ create_directory() {
 
 download_cli_tool() {
     printf " -----> Download ArvanCloud CLI tool version: %s\n" "$CLI_VERSION"
+    printf "https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz"
     wget -q "https://github.com/arvancloud/cli/releases/download/v${CLI_VERSION}/arvan_${CLI_VERSION}_linux_amd64.tar.gz" -O - | tar -xz -C /service/
 }
 
