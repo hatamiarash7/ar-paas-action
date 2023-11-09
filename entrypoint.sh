@@ -62,10 +62,11 @@ login() {
     printf " -----> Login\n"
     printf "$AUTH\n"
     {
-        sleep 0.1
+        sleep 2
         echo -e "1\n"
-        sleep 1
+        sleep 2
         echo "$AUTH"
+        sleep 0.1
     } | /service/arvan login
 }
 
