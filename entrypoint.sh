@@ -1,13 +1,14 @@
 #!/bin/bash
 
 readonly CLI_VERSION="${1:?Error: Please set CLI version}"
-readonly AUTH="${2:?Error: Please set your API token}"
-readonly APP="${3:?Error: Please set your application name}"
-readonly CONTAINER="${4:?Error: Please set your container name}"
-readonly IMAGE="${5:?Error: Please set your image like this = image:tag}"
+readonly REGION="${2:?Error: Please set region}"
+readonly AUTH="${3:?Error: Please set your API token}"
+readonly APP="${4:?Error: Please set your application name}"
+readonly CONTAINER="${5:?Error: Please set your container name}"
+readonly IMAGE="${6:?Error: Please set your image like this = image:tag}"
 
-if [ "$6" != "default" ]; then
-    readonly NS="-n $6"
+if [ "$7" != "default" ]; then
+    readonly NS="-n $7"
 else
     readonly NS=""
 fi
@@ -15,7 +16,7 @@ fi
 print_header() {
     printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
     printf "%s\n" "*                                       *"
-    printf "%s\n" "*   Welcome to ArvanCloud PaaS Action   *"
+    printf "%s\n" "*      ArvanCloud PaaS/CaaS Action      *"
     printf "%s\n" "*                                       *"
     printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
     printf "%s\n\n" ""
@@ -47,7 +48,7 @@ get_data() {
 }
 
 create_directory() {
-    printf " -----> Create directory\n"
+    printf " -----> Create service directory\n"
     mkdir -p /service
 }
 
@@ -58,7 +59,14 @@ download_cli_tool() {
 
 login() {
     printf " -----> Login\n"
-    echo "$AUTH" | /service/arvan login
+    printf "$AUTH\n"
+    {
+        sleep 2
+        echo -e "1\n"
+        sleep 2
+        echo "$AUTH"
+        sleep 0.1
+    } | /service/arvan login
 }
 
 deploy() {
@@ -68,7 +76,7 @@ deploy() {
 
 cleanup() {
     printf " -----> Cleanup\n"
-    rm -rf /root/.arvan
+    rm -rf /root/.arvan /service
 }
 
 main() {
