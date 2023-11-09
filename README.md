@@ -1,17 +1,18 @@
-# ArvanCloud PaaS Action
+# ArvanCloud PaaS/CaaS Action
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/hatamiarash7/ar-paas-action?color=%2300baba&label=Marketplace&logo=github)
 
 ![logo](.github/logo.svg)
 
-With this action you can update your deployment on ArvanCloud PaaS.
+With this action you can update your deployment on ArvanCloud PaaS/CaaS.
 
 ## Usage
 
 ```yaml
-- name: R1C PaaS Action
+- name: R1C Action
   uses: hatamiarash7/ar-paas-action@v1.0.0
   with:
+    region: 1
     auth: ${{ secrets.API_TOKEN }}
     app: my-application
     container: proxy
@@ -22,20 +23,30 @@ With this action you can update your deployment on ArvanCloud PaaS.
 
 Following inputs can be used as `with` keys
 
-| Name        | Type     | Default | Description                                                                         |
-| ----------- | -------- | ------- | ----------------------------------------------------------------------------------- |
-| `auth`      | Required |         | Your API token from [ArvanCloud](https://www.arvancloud.com/en/docs/api)            |
-| `namespace` |          |         | The target namespace ( PaaS project ). Will be the default project if not specified |
-| `app`       | Required |         | Application's name in your PaaS project                                             |
-| `container` | Required |         | The container that you want to update its image                                     |
-| `image`     | Required |         | Docker image like `org/image:tag`                                                   |
-| `version`   |          | `1.3.6` | Version of ArvanCloud CLI tool                                                      |
+| Name        | Type     | Default | Description                                                                    |
+| ----------- | -------- | ------- | ------------------------------------------------------------------------------ |
+| `region`    |          |   `1`   | Your Arvancloud Region                                                         |
+| `auth`      | Required |         | Your API token                                                                 |
+| `namespace` |          |         | The target namespace ( project ). Will be the default project if not specified |
+| `app`       | Required |         | Application's name in your PaaS project                                        |
+| `container` | Required |         | The container that you want to update its image                                |
+| `image`     | Required |         | Docker image like `org/image:tag`                                              |
+| `version`   |          | `1.3.6` | Version of ArvanCloud CLI tool                                                 |
+
+### Region
+
+We have 2 regions in ArvanCloud PaaS/CaaS for now:
+
+- `1` for `ir-thr-ba1`
+- `2` for `ir-thr-ba2`
 
 ### Authentication
 
 You should get your API key from `ArvanCloud Dashboard > Settings > API keys`. You need a key with **Container Service** permission.
 
 Define this key as a `Repository/Organization` secret.
+
+Check [ArvanCloud Documentation](https://docs.arvancloud.ir/en/developer-tools/api/api-key) for more information.
 
 ---
 

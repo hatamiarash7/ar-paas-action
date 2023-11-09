@@ -1,10 +1,11 @@
 #!/bin/bash
 
 readonly CLI_VERSION="${1:?Error: Please set CLI version}"
-readonly AUTH="${2:?Error: Please set your API token}"
-readonly APP="${3:?Error: Please set your application name}"
-readonly CONTAINER="${4:?Error: Please set your container name}"
-readonly IMAGE="${5:?Error: Please set your image like this = image:tag}"
+readonly REGION="${2:?Error: Please set region}"
+readonly AUTH="${3:?Error: Please set your API token}"
+readonly APP="${4:?Error: Please set your application name}"
+readonly CONTAINER="${5:?Error: Please set your container name}"
+readonly IMAGE="${6:?Error: Please set your image like this = image:tag}"
 
 if [ "$6" != "default" ]; then
     readonly NS="-n $6"
@@ -15,7 +16,7 @@ fi
 print_header() {
     printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
     printf "%s\n" "*                                       *"
-    printf "%s\n" "*   Welcome to ArvanCloud PaaS Action   *"
+    printf "%s\n" "*      ArvanCloud PaaS/CaaS Action      *"
     printf "%s\n" "*                                       *"
     printf "%s\n" "* * * * * * * * * * * * * * * * * * * * *"
     printf "%s\n\n" ""
@@ -60,7 +61,12 @@ download_cli_tool() {
 login() {
     printf " -----> Login\n"
     printf "$AUTH\n"
-    echo "$AUTH" | /service/arvan login
+    {
+        sleep 0.1
+        echo -e "1\n"
+        sleep 1
+        echo "$AUTH"
+    } | /service/arvan login
 }
 
 deploy() {

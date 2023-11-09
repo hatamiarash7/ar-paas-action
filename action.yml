@@ -5,13 +5,17 @@ branding:
   icon: "cloud"
   color: "blue"
 inputs:
+  version:
+    description: "The version of CLI tool to use"
+    required: false
+    default: "1.3.6"
+  region:
+    description: "Your ArvanCloud Region"
+    required: false
+    default: "1"
   auth:
     description: "Your ArvanCloud API auth token"
     required: true
-  namespace:
-    description: "The target namespace ( project )"
-    required: false
-    default: "default"
   app:
     description: "The ArvanCloud app to deploy to"
     required: true
@@ -21,15 +25,16 @@ inputs:
   image:
     description: "Your new image to deploy"
     required: true
-  version:
-    description: "The version of CLI tool to use"
+  namespace:
+    description: "The target namespace ( project )"
     required: false
-    default: "1.3.6"
+    default: "default"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.version }}
+    - ${{ inputs.region }}
     - ${{ inputs.auth }}
     - ${{ inputs.app }}
     - ${{ inputs.container }}
