@@ -39,7 +39,7 @@ Following inputs can be used as `with` keys
 
 We have 2 regions in ArvanCloud PaaS/CaaS for now:
 
-- `1` for `ir-thr-ba1` ( Openshift )
+- `1` for `ir-thr-ba1` ( Openshift )  
 - `2` for `ir-thr-ba2` ( Kubernetes )
 
 ### Authentication
